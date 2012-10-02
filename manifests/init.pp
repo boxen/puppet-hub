@@ -1,5 +1,5 @@
 class hub {
-  require github::config
+  require boxen::config
 
   package { 'hub':
     ensure => latest
@@ -9,8 +9,8 @@ class hub {
     value => 'https'
   }
 
-  file { "${github::config::envdir}/hub.sh":
+  file { "${boxen::config::envdir}/hub.sh":
     source  => 'puppet:///modules/hub/hub.sh',
-    require => File[$github::config::envdir]
+    require => File[$boxen::config::envdir]
   }
 }
