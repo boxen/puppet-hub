@@ -9,3 +9,9 @@ Requires the following boxen modules:
 ```puppet
 include hub
 ```
+
+## Development
+
+Write code.
+
+Run `script/cibuild`.
