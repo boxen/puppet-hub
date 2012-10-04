@@ -1,3 +1,8 @@
+# Public: Installs & configures hub
+#
+# Examples
+#
+#   include hub
 class hub {
   require boxen::config
 
