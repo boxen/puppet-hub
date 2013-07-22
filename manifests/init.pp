@@ -15,7 +15,7 @@ class hub {
   }
 
   file { "${boxen::config::envdir}/hub.sh":
-    source  => 'puppet:///modules/hub/hub.sh',
+    content => template('hub/env.sh.erb'),
     require => File[$boxen::config::envdir]
   }
 }
