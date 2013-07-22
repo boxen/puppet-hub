@@ -14,8 +14,12 @@ class hub {
     value => 'https'
   }
 
-  file { "${boxen::config::envdir}/hub.sh":
-    content => template('hub/env.sh.erb'),
-    require => File[$boxen::config::envdir]
+  if $::osfamily == 'Darwin' {
+    include homebrew::config
+
+    file { "${boxen::config::envdir}/hub.sh":
+      content => template('hub/env.sh.erb'),
+      require => File[$boxen::config::envdir]
+    }
   }
 }
