@@ -9,7 +9,8 @@ describe 'hub' do
     {
       :boxen_home    => boxen_home,
       :boxen_repodir => repo_dir,
-      :boxen_envdir  => env_dir
+      :boxen_envdir  => env_dir,
+      :osfamily      => "Darwin"
     }
   end
 
