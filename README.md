@@ -1,6 +1,6 @@
 # Hub Puppet Module for Boxen
 
-[![Build Status](https://travis-ci.org/boxen/puppet-hub.png?branch=master)](https://travis-ci.org/boxen/puppet-hub)
+[![Build Status](https://travis-ci.org/boxen/puppet-hub.png)](https://travis-ci.org/boxen/puppet-hub)
 
 Install [Hub](https://github.com/defunkt/hub), a GitHub-focused `git` wrapper.
 
