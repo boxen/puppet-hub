@@ -1,4 +1,4 @@
-# FIXME - We should probably pull directly from the forge
-mod 'inifile', '0.0.1',  :github_tarball => 'boxen/puppet-inifile'
-mod 'boxen',   '0.0.12', :github_tarball => 'boxen/puppet-boxen'
-mod 'git',     '0.0.2',  :github_tarball => 'boxen/puppet-git'
+mod 'inifile',   '1.0.0',  :github_tarball => 'puppetlabs/puppetlabs-inifile'
+mod 'boxen',     '3.0.1',  :github_tarball => 'boxen/puppet-boxen'
+mod 'git',       '1.2.5',  :github_tarball => 'boxen/puppet-git'
+mod 'homebrew',  '1.4.1',  :github_tarball => 'boxen/puppet-homebrew'
