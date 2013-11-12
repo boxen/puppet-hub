@@ -28,7 +28,13 @@ class hub(
         include homebrew::config
 
         file { "${boxen::config::envdir}/hub.sh":
-          content => template('hub/env.sh.erb')
+          ensure => absent,
+        }
+
+        ->
+        boxen::env_script { 'hub':
+          content  => template('hub/env.sh.erb'),
+          priority => lower
         }
       }
     }
@@ -38,13 +44,15 @@ class hub(
         ensure => absent
       }
 
-      file { "${boxen::config::envdir}/hub.sh":
-        ensure => absent
+      boxen::env_script { 'hub':
+        ensure   => absent,
+        priority => lower,
+        content  => 'this is a hack',
       }
     }
 
     default: {
-      fail("Hub#ensure must be present or absent!")
+      fail('Hub#ensure must be present or absent!')
     }
 
   }
