@@ -5,6 +5,7 @@
 #   include hub
 class hub(
   $ensure = present,
+  $alias_hub_to_git = true
 ) {
 
   case $ensure {
