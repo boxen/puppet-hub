@@ -20,8 +20,4 @@ describe 'hub' do
   it 'sets up hub.sh file' do
     should contain_file("#{env_dir}/hub.sh")
   end
-
-  it 'sets up global hub protocal config option' do
-    should contain_git__config__global('hub.protocol').with_value('https')
-  end
 end
