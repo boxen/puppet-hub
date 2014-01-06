@@ -20,10 +20,6 @@ class hub(
         ensure => latest
       }
 
-      git::config::global { 'hub.protocol':
-        value => 'https'
-      }
-
       if $::osfamily == 'Darwin' {
         include homebrew::config
 
