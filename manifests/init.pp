@@ -4,8 +4,9 @@
 #
 #   include hub
 class hub(
-  $ensure = present,
-  $alias_hub_to_git = true
+  $ensure           = 'present',
+  $alias_hub_to_git = true,
+  $protocol         = 'https',
 ) {
 
   case $ensure {
@@ -21,7 +22,7 @@ class hub(
       }
 
       git::config::global { 'hub.protocol':
-        value => 'https'
+        value => $protocol,
       }
 
       if $::osfamily == 'Darwin' {
