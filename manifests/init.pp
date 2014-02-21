@@ -29,7 +29,7 @@ class hub(
         'unzip -o /tmp/hub.zip -d /tmp/hub',
         # run the install
         "cd /tmp/hub/hub-${version}",
-        'rake install'
+        "PREFIX=${boxen::config::home} rake install"
       ], ' && ')
 
       exec {
