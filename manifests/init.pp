@@ -14,13 +14,29 @@ class hub(
       if defined_with_params(Package[gh], { 'ensure' => 'latest' }) {
         fail('The hub package is incompatible with the GH package!')
       }
-
       include boxen::config
 
-      package { 'hub':
-        provider => 'zip',
-        source   => 'https://github.com/github/hub/archive/v1.11.2.zip',
-        ensure   => latest
+      $version = '1.11.2'
+      $download_uri = "https://github.com/github/hub/archive/v${version}.zip"
+
+      $install_command = join([
+        # remove any previous attempts
+        'rm -rf /tmp/hub*',
+        # download the zip to tmp
+        "curl ${download_uri} > /tmp/hub.zip",
+        # extract the zip to tmp
+        'mkdir /tmp/hub',
+        'unzip -o /tmp/hub.zip -d /tmp/hub',
+        # run the install
+        'cd /tmp/hub',
+        'rake install'
+      ], ' && ')
+
+      exec {
+        "install hub":
+          command => $install_command,
+          unless  => "test -x hub && hub version | grep 'hub version ${version}'",
+          user    => $::boxen_user
       }
 
       git::config::global { 'hub.protocol':
