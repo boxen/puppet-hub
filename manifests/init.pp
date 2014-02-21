@@ -28,7 +28,7 @@ class hub(
         'mkdir /tmp/hub',
         'unzip -o /tmp/hub.zip -d /tmp/hub',
         # run the install
-        'cd /tmp/hub',
+        "cd /tmp/hub/hub-${version}",
         'rake install'
       ], ' && ')
 
