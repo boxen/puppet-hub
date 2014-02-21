@@ -17,7 +17,7 @@ class hub(
       include boxen::config
 
       $version = '1.11.2'
-      $download_uri = "https://github.com/github/hub/archive/v${version}.zip"
+      $download_uri = "https://codeload.github.com/github/hub/zip/v${version}"
 
       $install_command = join([
         # remove any previous attempts
