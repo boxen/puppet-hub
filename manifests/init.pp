@@ -18,7 +18,9 @@ class hub(
       include boxen::config
 
       package { 'hub':
-        ensure => latest
+        provider => 'zip',
+        source   => 'https://github.com/github/hub/archive/v1.11.2.zip',
+        ensure   => latest
       }
 
       git::config::global { 'hub.protocol':
