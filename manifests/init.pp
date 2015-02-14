@@ -17,8 +17,10 @@ class hub(
 
       include boxen::config
 
-      package { 'hub':
-        ensure => latest
+      homebrew::formula { 'hub': }
+
+      package { 'boxen/brews/hub':
+        ensure => latest,
       }
 
       git::config::global { 'hub.protocol':
