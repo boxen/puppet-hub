@@ -2,8 +2,8 @@ require 'formula'
 
 class Hub < Formula
   homepage "http://hub.github.com/"
-  url "https://github.com/github/hub/releases/download/v2.2.0-rc1/hub-mac-amd64-2.2.0-rc1.tar.gz"
-  sha1 "413ce80d32f6313cef010e0edb1e664e1fff7427"
+  url "https://github.com/github/hub/releases/download/v2.2.0/hub-mac-amd64-2.2.0.tar.gz"
+  sha1 "72f7bcb8893287dcbd63ed903ddddd55d239e96a"
 
   def install
     bin.install "hub"
