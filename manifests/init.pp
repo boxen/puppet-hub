@@ -17,9 +17,7 @@ class hub(
 
       include boxen::config
 
-      homebrew::formula { 'hub': }
-
-      package { 'boxen/brews/hub':
+      package { 'hub':
         ensure => latest,
       }
 
