@@ -8,8 +8,9 @@ cd $(dirname "$0")/..
 SCRIPT=$(basename "$0")
 
 if [ ! -d ".bundle/binstubs" ]; then
-  bundle binstubs --path .bundle/binstubs librarian-puppet puppet puppet-lint
+  bundle install --binstubs .bundle/binstubs
 fi
+PATH=".bundle/binstubs:$PATH"
 
-bundle exec cardboard bootstrap
-exec bundle exec cardboard "$SCRIPT" "$@"
+cardboard bootstrap
+exec cardboard "$SCRIPT" "$@"
