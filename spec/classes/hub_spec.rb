@@ -24,4 +24,12 @@ describe 'hub' do
   it 'sets up global hub protocal config option' do
     should contain_git__config__global('hub.protocol').with_value('https')
   end
+
+  context "package_name is hub" do
+    let(:params) {
+      { :package_name => "hub" }
+    }
+
+    it { should contain_package('hub').with_ensure('latest') }
+  end
 end
