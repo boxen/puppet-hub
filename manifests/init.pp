@@ -7,6 +7,7 @@ class hub(
   $ensure           = 'present',
   $alias_hub_to_git = true,
   $protocol         = 'https',
+  $package_name     = 'boxen/brews/hub',
 ) {
 
   case $ensure {
@@ -19,7 +20,7 @@ class hub(
 
       homebrew::formula { 'hub': }
 
-      package { 'boxen/brews/hub':
+      package { $package_name :
         ensure => latest,
       }
 
@@ -43,7 +44,7 @@ class hub(
     }
 
     absent: {
-      package { 'hub':
+      package { $package_name :
         ensure => absent
       }
 
